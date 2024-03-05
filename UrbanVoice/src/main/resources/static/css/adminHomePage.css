@@ -1,11 +1,14 @@
 body {
 	background: url('../css/abstract2.jpg') center repeat-x !important;
+	
 }
 
 table {
-	width: 60%;
+	width: 95%;
 }
-
+.tableCaption{
+	width: 90%;
+}
 .tableCaption p {
 	padding: 5px 5px;
 	display: inline-block;
@@ -100,4 +103,18 @@ table {
 .status-filter select:focus {
   outline: none;
   box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+
+.maps-button{
+	width: 80px;
+	height: 50px;
+	font-size: 14px;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.maps-button:hover{
+	background-color: #4caf50;
+	color: white;
+	border: 1px solid  #4caf50;
 }

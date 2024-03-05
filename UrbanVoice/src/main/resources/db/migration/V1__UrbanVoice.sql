@@ -153,9 +153,7 @@ INSERT INTO `user` VALUES (1,'ajayhhegde21','Ajay','Hegde','9886562623','ajayhhe
               
 
 INSERT INTO `complaint` VALUES 
-(1,'Water Scarcity','3rd Cross Subhash Nagar ','Near Hanuman Temple','Kaveri water not available from past 3-4 days.',NULL,NULL,'WAITING','2024-01-15 19:35:43',NULL,2,2,1),
-(2,'Noise Pollution','14th Cross, Colony road ','Near Krishna cafe','Severe traffic from past few days.',NULL,NULL,'WAITING','2024-01-15 19:39:57',NULL,2,2,1),
-(3,'Air Quality','3rd Cross, 4th main road Lalith nagar','Near Euro Kids playhome','Pollution has taken over the school.',NULL,NULL,'WAITING','2024-01-15 19:41:44',NULL,1,2,1),
-(4,'Street Lighting','5th Main road, 1st Main road ','Near Ashoka Circle','The lights are down from past few days during nights and they flicker.',NULL,NULL,'WAITING','2024-01-15 19:43:44',NULL,1,2,1),
-(5,'Waste Management','1st Main road, 3rd Cross','Near Rameshwaram Cafe','The BBMP trucks have stopped coming from a past few days.',NULL,NULL,'WAITING','2024-01-15 19:45:21',NULL,1,2,1),
-(6,'Public Transportation','1st Main road, 3rd Cross','Near Zudio Outlet','Proper public transportation schedule is not maintianed.',NULL,NULL,'WAITING','2024-01-15 19:46:24',NULL,1,1,1);
+(1,'Water Scarcity','3rd Cross Subhash Nagar ','Near Hanuman Temple','Kaveri water not available from past 3-4 days.',NULL,"https://www.google.com/maps?q=12.931420989004803,7",'WAITING','2024-01-15 19:35:43',NULL,2,2,1),
+(2,'Noise Pollution','14th Cross, Colony road ','Near Krishna cafe','Severe traffic from past few days.',NULL,"https://www.google.com/maps?q=12.931420989004803,7",'WAITING','2024-01-15 19:39:57',NULL,2,2,1),
+(3,'Air Quality','3rd Cross, 4th main road Lalith nagar','Near Euro Kids playhome','Pollution has taken over the school.',NULL,"https://www.google.com/maps?q=12.931420989004803,7",'WAITING','2024-01-15 19:41:44',NULL,1,2,1),
+(4,'Street Lighting','5th Main road, 1st Main road ','Near Ashoka Circle','The lights are down from past few days during nights and they flicker.',NULL,"https://www.google.com/maps?q=12.931420989004803,7",'WAITING','2024-01-15 19:43:44',NULL,1,2,1)

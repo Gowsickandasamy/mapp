@@ -62,6 +62,7 @@
     height: 300px;
 }
 #setLocationButton{
+    cursor: pointer;
     position: relative;
     left: 240px;
    
@@ -102,7 +103,7 @@
         <p>CREATE COMPLAINT</p>
     </div>
  
-    <form th:action="@{/urbanvoice/user/create-complaint}" method="post" th:object="${complaint}">
+    <form th:action="@{/urbanvoice/user/create-complaint}" method="post" th:object="${complaint}" id="complaintForm">
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 15px;">
             <div style="flex-basis: calc(33.33% - 10px); margin-right: 10px;">
                 <label for="area">Area :</label>
@@ -162,8 +163,8 @@
         <div style="flex-basis: calc(33.33% - 10px); margin-right: 10px;display: flex;width: 100%;">
            
             <input type="text" id="location" name="location" th:field="*{location}" maxlength="50"
-                   placeholder="Set a Location" style="width: 80%;" />
-                   <button onclick="openMap()" style="width: 20%;height: 40px;cursor: pointer;">Set Location</button>
+                   placeholder="Set a Location" style="width: 80%;"  required/>
+                   <button onclick="openMap()" style="width: 20%;height: 40px;cursor: pointer;" >Set Location</button>
         </div>
  
         <div style="margin-bottom: 5px;">
@@ -191,6 +192,7 @@
        
        
         function openMap() {
+            
             document.getElementById('mapModal').style.display = 'block';
             initializeLeafletMap();
         }
@@ -237,6 +239,7 @@
                         });
  
                         setLocationButton.addEventListener('click', function() {
+                            
                             const position = markerposition.getLatLng();
                             document.getElementById("location").value = `https://www.google.com/maps?q=${position.lat},${position.lng}`;
                             console.log('Set location: ' + position.lat + ', ' + position.lng);
@@ -253,6 +256,7 @@
                                 .then(data => console.log(data))
                                 .catch(error => console.error('Error setting location:', error));
                                 closeMap();
+                                
                         });
  
                         map.on('click', function(event) {

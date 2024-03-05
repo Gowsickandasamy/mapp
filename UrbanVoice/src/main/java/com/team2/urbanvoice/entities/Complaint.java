@@ -30,7 +30,7 @@ public class Complaint {
 	private String issue;
 	@Column(nullable = false, length = 2000)
 	private String comments;
-	@Column( length = 2000)
+	@Column( nullable = false,length = 2000)
 	private String location;
 	@Column(length = 11)
 	@Enumerated(EnumType.STRING)
