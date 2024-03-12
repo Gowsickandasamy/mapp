@@ -1,23 +1,59 @@
 body {
-	background: url('../css/abstract2.jpg') center repeat-x !important;
+    background: url('../css/abstract2.jpg') center repeat-x !important;
+    height: 100vh;
+    width: 100%;
+    user-select: none;
+    display: flex;
+    margin: 0;
+}
+
+nav {
+    flex: 0.3;
+    z-index: 3; /* Ensure the nav is above other elements */
 }
 
 .hero {
-	width: 100vw;
-	height: 115vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 0 20px; /* Added padding for gaps on right and left */
+	height: 100vh;
+	margin-top: 200px;
+	border-radius: 15px;
+
+}
+
+.image_container {
+	background-color: blue;
+    flex: 0.4;
+    padding: 20px;
+    height: 90%;
+}
+
+.form-container {
+	flex: 0.4;
+    position: relative;
+    z-index: 2;
+    height: 90%;
+	border: none;
+}
+.form-box h2{
+	font-size: 12px;
 }
 
 .form-box {
-	background-color: #fff;
-	padding: 25px 40px;
-	border-radius: 15px;
-	margin-bottom: 60px;
-	position: relative;
-	z-index: 2;
+    background-color: #fff;
+    padding: 0px 40px;
+    
+    /* margin-bottom: 80px; */
+	border: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+.first_form{
+	display: flex;
+	flex-direction: row;
 }
 
 .input-group {
@@ -32,13 +68,21 @@ body {
 	margin-left: 25px;
 	margin-bottom: 15px;
 }
+.input-field:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
 
 .input-field {
+	
+	border: 1px solid #ced4da;
 	padding: 10px;
 	margin-top: 2px;
-	border: 1px solid #100e0e;
-	border-radius: 1px;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	outline: none;
+	border-radius: 5px;
 	font-size: 16px;
+	width: 100%;
 }
 
 label {
@@ -102,10 +146,11 @@ header {
 	z-index: 1;
 }
 
-nav {
+/* nav {
 	position: relative;
 	z-index: 12;
-}
+	width: 100%;
+} */
 
 .input-group h2 {
 	font-family: 'Georgia', Times, serif;
@@ -117,14 +162,7 @@ nav {
 	font-size: 27px;
 }
 
-/* #navbar nav li a i {
-	color: #4caf50;
-	background-color: rgba(16, 14, 14, 0.2);
-	padding: 6px 6px;
-	font-style: bold;
-	border: none;
-	border-radius: 100%;
-} */
+
 
 p {
 	font-family: 'Georgia', Times, serif;
@@ -133,14 +171,14 @@ p {
 }
 
 .form-box p a {
-	color: black;
-	font-weight: 550;
-	text-decoration: underline;
+	color: #007bff;
+	/* font-weight: 550; */
+	
 }
 
 .form-box p a:hover {
 	cursor: pointer;
-	color: #4caf50;
+	text-decoration: underline;
 }
 
 .modal {
@@ -240,4 +278,25 @@ background-color: rgb(255, 255, 255);
 	border-radius: 5px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 	z-index: 4;
+}
+ 
+
+@media screen and (max-width: 768px){
+	.hero{
+		flex-direction: column;
+		margin-top: 250px;
+		/* min-height: max-content; */
+	}
+	.image_container{
+		width: 100%;
+		
+	}
+	.form-container{
+		height:fit-content;
+		padding-bottom: 60px;
+	}
+	.first_form{
+		display: flex;
+		flex-direction: column;
+	}
 }

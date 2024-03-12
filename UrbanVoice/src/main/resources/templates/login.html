@@ -2,357 +2,98 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" th:href="@{../css/navbarUtility.css}">
-	<link rel="stylesheet" th:href="@{../css/registration.css}">
-	<link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-	<link rel="stylesheet"
-		href="https://unpkg.com/bs-brain@2.0.3/components/registrations/registration-5/assets/css/registration-5.css">
-	<script th:src="@{/js/script.js}"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-	<link rel="icon" type="image/x-icon" th:href="@{/css/favicon.png}">
-	<script src="https://kit.fontawesome.com/7d53697cb5.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{../css/navbarUtility.css}">
+    <link rel="stylesheet" th:href="@{../css/login.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{/css/favicon.png}">
+    <script src="https://kit.fontawesome.com/7d53697cb5.js" crossorigin="anonymous"></script>
 
-	<title>Registration Form</title>
+    <style>
+       
+    </style>
+
+    <title>Login Form</title>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1A2238; padding: 23px; ">
-		<div class="wrapper">
-			<div class="logo">
-				<a href="#">UrbanVoice</a>
-			</div>
-			<input type="radio" name="slider" id="menu-btn"> <input type="radio" name="slider" id="close-btn">
-			<ul class="nav-links">
-				<label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-				<li><a href="/urbanvoice">Home</a></li>
-				<li><a href="/urbanvoice/aboutus">About Us</a></li>
-				<!-- <li><a href="/urbanvoice/login">Register</a></li> -->
-			</ul>
-			<label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars" style="position: relative;
-                top: -5px;
-                font-size: 26px;"></i></label>
-		</div>
-	</nav>
-	<div th:if="${sMessage}" id="popup" class="popup">
-		<p th:text="${sMessage}"></p>
-	</div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="wrapper">
+            <div class="logo">
+                <a href="#">UrbanVoice</a>
+            </div>
+            <input type="radio" name="slider" id="menu-btn"> <input type="radio" name="slider" id="close-btn">
+            <ul class="nav-links">
+                <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+                <li><a href="/urbanvoice">Home</a></li>
+                <li><a href="/urbanvoice/aboutus">About Us</a></li>
+            </ul>
+            <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+    </nav>
 
-	<div th:if="${eMessage}" id="popup1" class="popup1">
-		<p th:text="${eMessage}"></p>
-	</div>
+    <section class="p-2 p-md-4 p-xl-5" >
+        <div class="container">
+            <div class="card shadow-sm">
+                <div class="row g-0"  id="main_box">
+                    <div class="col-md-6 bg-primary text-white" style="display: flex;align-items: center;background-color: #2568FB;flex: 0.5;">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="col-10 col-xl-8 py-3">
+                                <img class="img-fluid rounded mb-4" loading="lazy" src="./assets/img/bsb-logo-light.svg"
+                                    width="245" height="80" alt="BootstrapBrain Logo">
+                                <!-- <hr class="border-primary-subtle mb-4">
+                                <h2 class="h1 mb-4">Your Message Here</h2> -->
+                                <p class="lead m-0">Image will be placed here</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="flex:0.5;">
+                        <div class="card-body p-3 p-md-4 p-xl-5">
+                            <div class="mb-5">
+                                <!-- <h2 class="h3">Login</h2> -->
+                                <!-- <h3 class="fs-6 fw-normal text-secondary m-0">Enter your details to Login</h3> -->
+                            </div>
+                            <form th:action="@{/urbanvoice/login}" method="post">
+                                <h2 class="text-center mb-4">LOGIN</h2>
 
-	<section class="p-3 p-md-4 p-xl-5">
-		<div class="container">
-			<div class="card border-light-subtle shadow-sm">
-				<div class="row g-0">
-					<div class="col-12 col-md-6 text-bg-primary">
-						<div class="d-flex align-items-center justify-content-center h-100">
-							<div class="col-10 col-xl-8 py-3">
-								<img class="img-fluid rounded mb-4" loading="lazy" src="./assets/img/bsb-logo-light.svg"
-									width="245" height="80" alt="BootstrapBrain Logo">
-								<hr class="border-primary-subtle mb-4">
-								<h2 class="h1 mb-4">gegegefgerger.</h2>
-								<p class="lead m-0">gegergrgre.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-md-6">
-						<div class="card-body p-3 p-md-4 p-xl-5">
-							<div class="row">
-								<div class="col-12">
-									<div class="mb-5">
-										<h2 class="h3">Login</h2>
-										<h3 class="fs-6 fw-normal text-secondary m-0">Enter your
-											details to register</h3>
-									</div>
-								</div>
-							</div>
-							<form th:action="@{/urbanvoice/login}" method="post">
-								<h2 class="text-center mb-4">LOGIN</h2>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="username" name="username"
+                                        placeholder="Enter your email" required autofocus>
+                                </div>
 
-								<div class="form-group">
-									<input type="email" class="form-control" id="username" name="username"
-										placeholder="Enter your email" required autofocus style="margin-bottom: 20px;">
-								</div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        placeholder="Enter your password" required>
+                                </div>
 
-								<div class="form-group">
-									<input type="password" class="form-control" id="password" name="password"
-										placeholder="Enter your password" required style="margin-bottom: 15px;">
-								</div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                    <button type="reset" class="btn btn-secondary btn-block mt-3">Reset</button>
+                                </div>
+                            </form>
 
-								<div class="text-center">
-									<button type="submit" class="btn btn-primary btn-block ">Sign
-										in</button>
-									<button type="reset" class="btn btn-secondary btn-block">Reset</button>
-								</div>
+                            <hr class="mt-5 mb-4 border-secondary-subtle">
 
-							</form>
-							<div class="row">
-								<div class="col-12">
-									<hr class="mt-5 mb-4 border-secondary-subtle">
+                            <p class="mt-3 text-center">
+                                Not Registered? <a th:href="@{/urbanvoice/registration}" class="text-decoration-none">Click
+                                    here to register</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-									<p class="mt-3 text-center">
-										Not Registered? <a th:href="@{/urbanvoice/registration}"
-											class="text-decoration-none">Click here to register</a>
-									</p> <button type="button" class="verify-btn" id="verifyButton"
-										onclick="generateOtp()">Verify</button>
-								</div>
-							</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-QMUjgHriT+vzab40RzIguXwsw6x3fM5e05EQ86UvhPmkxumkEcLAOR9rqL9zKtg1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/t6U1WI2L0nKfU"
+        crossorigin="anonymous"></script>
+</body>
 
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
-		integrity="sha384-QMUjgHriT+vzab40RzIguXwsw6x3fM5e05EQ86UvhPmkxumkEcLAOR9rqL9zKtg1"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/t6U1WI2L0nKfU"
-		crossorigin="anonymous"></script>
-		<script>
-			function showOtpPopup() {
-				document.getElementById("otpPopup").style.display = "block";
-				countdown = 60;
-				startOtpTimer();
-			}
-	
-			function hideOtpPopup() {
-				document.getElementById("otpPopup").style.display = "none";
-				clearInterval(otpTimer);
-			}
-	
-			function startOtpTimer() {
-				const otpTimer = setInterval(function () {
-					if (countdown <= 0) {
-						clearInterval(otpTimer);
-						document.getElementById("validateButton").disabled = false;
-						document.getElementById("countdownOtp").innerText = "";
-					} else {
-						document.getElementById("countdownOtp").innerText = "Resend OTP in: " + countdown + "s";
-						countdown--;
-					}
-				}, 1000);
-			}
-	
-			function toggleVerifyButton() {
-				var emailInput = document.getElementById("email");
-				var verifyButton = document.getElementById("verifyButton");
-	
-				if (emailInput.value.trim() !== "") {
-					verifyButton.style.display = "block";
-				} else {
-					verifyButton.style.display = "none";
-				}
-			}
-	
-			let timer;
-			let countdown = 60;
-	
-			function startTimer() {
-				timer = setInterval(function () {
-					if (countdown <= 0) {
-						clearInterval(timer);
-						document.getElementById("resendButton").disabled = false;
-						document.getElementById("countdown").innerText = "";
-					} else {
-						document.getElementById("countdown").innerText = "Resend OTP in: " + countdown + "s";
-						countdown--;
-					}
-				}, 1000);
-			}
-	
-			function enableValidateButton() {
-				document.getElementById("validateButton").disabled = false;
-			}
-	
-			function enableResendButton() {
-				document.getElementById("resendButton").disabled = false;
-			}
-			function enableRegisterButton() {
-				let registerButton = document.getElementById("submitButton");
-				registerButton.disabled = false;
-				registerButton.style.backgroundColor = "green";
-			}
-	
-	
-			function generateOtp() {
-				let email = document.getElementById("email").value;
-	
-				fetch("http://localhost:9006/urbanvoice/generateEmailOtp", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: email,
-				})
-					.then(response => {
-						if (response.ok) {
-							document.getElementById("otpsentmessage").innerText = "Otp sent successfully";
-							document.getElementById("verifyButton").disabled = true;
-							showOtpPopup();
-							response.text();
-							enableValidateButton();
-							countdown = 60;
-							startTimer();
-							return response.text();
-							// Return the promise chain to the next then block
-						} else {
-							throw new Error("Failed to generate OTP");
-						}
-					})
-					.then(data => {
-						document.getElementById("message").innerHTML = data;
-					})
-					.catch(error => console.error("Error generating OTP:", error));
-			}
-	
-			function validateOtp() {
-				let otp = document.getElementById("otp").value;
-				let email = document.getElementById("email").value;
-				const validateButton = document.getElementById("validateButton");
-				validateButton.style.color = "#4caf50";
-	
-				fetch("http://localhost:9006/urbanvoice/validateOtp", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: '{"email":"' + email + '","otp":"' + otp + '"}', // Directly pass the formatted string
-				})
-					.then(response => {
-						clearInterval(timer); // Stop the OTP timer
-						document.getElementById("countdown").innerText = "";
-	
-						if (response.ok) {
-	
-	
-							document.getElementById("validateButton").disabled = true;
-							document.getElementById('validateButton').classList.add('green');
-							document.getElementById("otpmessage").innerText = "Otp verified succesfully";
-	
-							enableRegisterButton();
-						} else {
-							document.getElementById("otpmessage").innerText = "Otp expired or invalid";
-							enableResendButton();
-						}
-	
-						return response.text();
-					})
-					.then(data => {
-						// Display the response as it is
-						document.getElementById("message").innerText = data;
-	
-						// If the response is successful, hide the OTP popup
-						if (document.getElementById("validateButton").disabled) {
-							hideOtpPopup();
-						}
-					})
-					.catch(error => {
-						console.error("Error validating OTP:", error.message);
-						// Handle the error here, e.g., show an error message to the user
-						document.getElementById("message").innerText = "Error: " + error.message;
-					});
-			}
-			function resendOtp() {
-				let email = document.getElementById("email").value;
-	
-				fetch("http://localhost:9006/urbanvoice/generateEmailOtp", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: email,
-				})
-					.then(response => {
-						if (response.ok) {
-							document.getElementById("resendButton").disabled = true;
-							enableValidateButton();
-							countdown = 60;
-							startTimer();
-							return response.text(); // Capture the response text
-						} else {
-							throw new Error("Error resending OTP");
-						}
-					})
-					.then(data => {
-						// Display the response text
-						document.getElementById("message").innerText = data;
-					})
-					.catch(error => {
-						console.error("Error resending OTP:", error);
-						// Handle the error or display an error message
-						document.getElementById("message").innerText = "Error resending OTP: " + error.message;
-					});
-			}
-	
-	
-			function validatePassword() {
-				let password = document.getElementById("password").value;
-				let confirmPassword = document.getElementById("confirmPassword").value;
-	
-				if (password !== confirmPassword) {
-					document.getElementById("confirmPassword").value = "";
-					document.getElementById("passwordmessage").innerHTML = "Password and Confirm Password do not match !";
-	
-					return false;
-				} else {
-					document.getElementById("passwordmessage").innerHTML = "";
-	
-					return true;
-				}
-			}
-	
-			window.onload = function () {
-				let confirmPasswordInput = document.getElementById("confirmPassword");
-				confirmPasswordInput.addEventListener("blur", function () {
-					validatePassword();
-				});
-			};
-			
-			document.addEventListener('DOMContentLoaded', function() {
-				const popup = document.getElementById('popup');
-	
-				if (popup.innerText.trim() !== '') {
-					popup.style.display = 'block';
-	
-					setTimeout(function() {
-						popup.style.display = 'none';
-					}, 8000);
-				}
-			});
-	
-			document.addEventListener('DOMContentLoaded', function() {
-				const popup1 = document.getElementById('popup1');
-	
-				if (popup1.innerText.trim() !== '') {
-					popup1.style.display = 'block';
-	
-					setTimeout(function() {
-						popup1.style.display = 'none';
-					}, 8000);
-				}
-			});
-		</script>
-	</body>
-	<div id="otpPopup" class="modal" style="display: none;">
-		<div class="modal-content">
-			<span class="close" onclick="hideOtpPopup()">&times;</span>
-			<p id="otpsentmessage"></p>
-			<h2>Enter OTP</h2>
-			<input type="text" id="otp" placeholder="Enter OTP">
-			<p id="otpmessage"></p>
-			<button id="validateButton" onclick="validateOtp()">Validate</button>
-	
-			<p id="countdown"></p>
-			<button type="button" id="resendButton" onclick="resendOtp()" disabled>Resend OTP</button>
-		</div>
-	</div>
-	</html>
+</html>

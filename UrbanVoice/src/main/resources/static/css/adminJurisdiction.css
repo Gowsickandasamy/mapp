@@ -3,7 +3,7 @@ body {
 }
 
 table {
-	width: 50%;
+	width: 70%;
 }
 
 td:nth-child(5) {
@@ -32,7 +32,7 @@ td:nth-child(5) {
 	border-radius: 5px;
 	float: right;
 	margin-right: 390px;
-	margin-top: 10px;
+	/* margin-top: 10px; */
 	cursor: pointer;
 	border: none;
 }

@@ -12,7 +12,8 @@
 	<link rel="stylesheet" th:href="@{/css/tableUtility.css}">
 	<link rel="stylesheet" th:href="@{/css/adminHomePage.css}">
 	<link rel="stylesheet" th:href="@{/css/viewModal.css}">
-	<link rel="stylesheet" th:href="@{/css/userNav.css}">
+	<link rel="stylesheet" th:href="@{/css/adminNav.css}">
+	
 	<script th:src="@{/js/script.js}"></script>
 	<script th:src="@{/js/modal.js}"></script>
 	<link rel="icon" type="image/x-icon" th:href="@{/css/favicon.png}">
@@ -50,35 +51,7 @@
 			  <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
 			</div>
 		  </nav>
-		<!-- <div id="navbar" class="navbar top">
-			<h1 class="logo">
-				<span class="text-primary"><i class="fa-solid fa-handshake" style="color: #000;"></i>
-					&nbsp;</span>UrbanVoice</h1>
-			<nav>
-				<ul>
-					<li class="buttons"><a th:href="@{/urbanvoice/admin/jurisdictions}">Jurisdictions</a></li>
-					<li class="buttons"><a th:href="@{/urbanvoice/admin/officers}">Officers</a></li>
-					<li>&nbsp; </li>
-					<li>
-						<div class="user-icon">
-							<span>[[${adminName}]]</span> &nbsp;
-							<button class="user-icon-button">
-								<i class="fa-solid fa-user-tie"></i>
-							</button>
-							<div class="dropdown-content">
-								<a th:href="@{/urbanvoice/admin/officers/add}">Add Officer</a>
-								<a th:href="@{/urbanvoice/admin/jurisdictions/add}">Add Jurisdiction</a>
-								<a th:href="@{/urbanvoice/admin/view-profile}">View Profile</a>
-								<a th:href="@{/urbanvoice/admin/change-password}">Change Password</a>
-								<a th:href="@{/logout}" onclick="confirmLogout(event)">Logout
-									<i class="fa-solid fa-right-from-bracket"
-										style="color: #e40707; margin-left: 5px; font-size:20px;"></i></a>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</div> -->
+		
 	</header>
 
 	<div class="tableCaption">
