@@ -4,15 +4,26 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  user-select: none;
 }
-nav{
+.homeheader{
+    height: 100px;
+	position: relative;
+    
+}
+.user_nav{
   position: fixed;
   z-index: 99;
   width: 100%;
-  border-radius: 0; 
-  background: #242526;
+  height: 100px;
+  background-color: rgba(26, 34, 55, 1);
+  display: flex;
+  align-items: center;
+
+  
 }
 nav .wrapper{
+    min-width: 100%;
   position: relative;
   width: 100%;
   padding: 0px 30px;
@@ -28,39 +39,52 @@ nav .wrapper{
   font-size: 30px;
   font-weight: 600;
   text-decoration: none;
-  margin-right:25rem;
 }
 .wrapper .nav-links{
-  display: inline-flex;
+    display: flex;
+    width: 180px;
+    gap: 20px;
+    margin-bottom: 0;
+    flex-direction: row;
+    height: 50px;
 }
 .nav-links li{
   list-style: none;
-  /* width: 120px; */
-  border: none;
 }
 .nav-links li a{
   color: #f2f2f2;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
-  padding: 9px 15px;
-  border-radius: 5px;
+  line-height: 0;
+  /* padding: 9px 15px; */
+ width: 30px;
   transition: all 0.3s ease;
- 
 }
-
 .nav-links li a:hover{
   background: #3A3B3C;
 }
 .nav-links .mobile-item{
   display: none;
 }
+.user-icon-button{
+    height: 60px;
+    width: 60px; /* Adjusted width for a perfect circle */
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+.user-icon-button i{
+    display: block;
+    margin: auto;
+}
 .nav-links .drop-menu{
   position: absolute;
-  background: #242526;
-  width: 180px;
+  background-color: rgba(26, 34, 55, 1);
+  width: 240px;
   line-height: 45px;
   top: 85px;
+  right: 0;
   opacity: 0;
   visibility: hidden;
   box-shadow: 0 6px 10px rgba(0,0,0,0.15);
@@ -138,8 +162,9 @@ nav .wrapper{
   right: 30px;
   top: 10px;
 }
- 
-@media screen and (max-width: 990px) {
+
+
+@media screen and (max-width: 970px) {
   .wrapper .btn{
     display: block;
   }
@@ -158,9 +183,6 @@ nav .wrapper{
     box-shadow: 0px 15px 15px rgba(0,0,0,0.18);
     transition: all 0.3s ease;
   }
-    .wrapper .logo a {
-        margin-right: 0; /* Remove margin for mobile view */
-    }
   /* custom scroll bar */
   ::-webkit-scrollbar {
     width: 10px;
@@ -182,9 +204,6 @@ nav .wrapper{
   }
   .nav-links li{
     margin: 15px 10px;
-    list-style: none;
-    width: 120px;
-    border: none;
   }
   .nav-links li a{
     padding: 0 20px;
@@ -268,7 +287,7 @@ nav .wrapper{
 nav input{
   display: none;
 }
- 
+
 .body-text{
   position: absolute;
   top: 50%;

@@ -2,89 +2,106 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" th:href="@{../css/urbanvoiceHome.css}">
-	<link rel="icon" type="image/x-icon" th:href="@{/css/favicon.png}">
-	<script src="https://kit.fontawesome.com/7d53697cb5.js"
-		crossorigin="anonymous"></script>
-	<title>urbanvoice Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{../css/urbanvoiceHome.css}">
+<link rel="stylesheet" th:href="@{../css/navbarUtility.css}">
+<link rel="icon" type="image/x-icon" th:href="@{/css/favicon.png}">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/7d53697cb5.js"
+	crossorigin="anonymous"></script>
+  
+<title>UrbanVoice Home</title>
 </head>
 <body>
-	
-	<nav>
-        <div>
-            <h1><a href="#home"><i style="font-size: 25px;" class="fa-solid fa-handshake"></i>&nbsp;&nbsp;urbanvoice</a>
-            </h1>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1A2238; padding: 23px; ">
+    <div class="wrapper">
+        <div class="logo">
+            <a href="#">UrbanVoice</a>
         </div>
-        <div class="nav-links">
-            <a href="#about"><i class="fa-solid fa-book fa-lg"></i>&nbsp;About</a>
-            <a href="#footer"><i class="fa-solid fa-address-book fa-lg"></i>&nbsp;Contact</a>
-            <a id="login" th:href="@{/urbanvoice/login}">Login/Register <i class="fa-solid fa-right-to-bracket fa-lg"
-                    style="color: #04d242;"></i></a>
-        </div>
-    </nav>
+        <input type="radio" name="slider" id="menu-btn">
+        <input type="radio" name="slider" id="close-btn">
+        <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li><a href="/urbanvoice">Home</a></li>
+            <li><a href="/urbanvoice/aboutus">About Us</a></li>
+            <li><a href="/urbanvoice/login">Login</a></li>
+        </ul>
+        <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars" style="position: relative; top: -5px; font-size: 26px;"></i></label>
+    </div>
+</nav>
 
-    <section id="home" class="home-section">
-        <div class="banner">
-            <h1>Welcome to urbanvoice</h1>
-            <p>At urbanvoice, we strive to help Bengaluru live up to its fame of being a great city to live in — soon to become a Smart City. We focus on working quicker and smarter to secure a transformative future for all of us.</p>
-            <a href="#about" class="btn">Learn More</a>
-        </div>
-
-    </section>
-
-
-    <section id="about" class="about-section">
-        <div class="banner">
-            <div>
-                <h2>About Us</h2>
-                <p>urbanvoice is a user-friendly website designed to empower citizens by providing a platform to voice their
-                    complaints and concerns regarding city streets. The primary focus is on facilitating a seamless
-                    process
-                    for users to raise issues related to roads, track the progress of their complaints, and, when
-                    necessary,
-                    escalate matters. External users, representing the common citizens, are encouraged to register on
-                    the
-                    platform to actively participate in improving their local infrastructure. Meanwhile, internal users,
-                    comprising city officers responsible for addressing these concerns, can be created and managed
-                    through
-                    the Officers Admin page. The website ensures a smooth user experience with a prominently placed
-                    logout
-                    button at the top right corner, allowing individuals to effortlessly navigate back to the landing
-                    page
-                    and login screen when needed.</p>
-            </div>
-            <div class="summary">
-                <div>
-                    <h1>Users Registered</h1>
-                    <h2 style="color: white !important">[[${usersCount}]]</h2>
-                </div>
-                <div>
-                    <h1>Complaints Raised</h1>
-                    <h2 style="color: white !important">[[${complaintsCount}]]</h2>
-                </div>
-                <div>
-                    <h1>Complaints Closed</h1>
-                    <h2 style="color: white !important">[[${closedComplaintsCount}]]</h2>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="footer">
-        <div class="contact-details">
-            <div>
-                <h2><i style="font-size: 30px;" class="fa-solid fa-handshake">&nbsp;</i>urbanvoice</h2>
-                <p style="font-size: 13px;">Grievance redressal portal</p>
-            </div>
-            <div style="display: flex; align-items: center;">
-                <p><i class="fa-solid fa-envelope"></i> urbanvoicehelpline2024@gmail.com<br>
-                    <i class="fa-solid fa-phone"></i> +91 9353761490
-                </p>
-            </div>
-        </div>
-        <hr />
-        <h3>Copyright &copy; urbanvoice. All rights reserved.</h3>
-    </footer>
+<!-- Home Section -->
+<section id="home" class="home-section bg-light">
+<div class="container banner text-center py-3">
+<div class="row">
+<div class="col-lg-12">
+<h1 class="mb-4">Welcome to UrbanVoice</h1>
+<p class="lead">UrbanVoice aims to facilitate citizen engagement in Bengaluru's development journey, aspiring to transform it into a Smart City. We are committed to expediting progress and fostering a prosperous future for all.</p>
+<a href="/urbanvoice/aboutus" class="btn btn-primary btn-md">Learn More</a>
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-md-3">
+<h3 class="text-white">Users Registered</h3>
+<h2>[[${usersCount}]]</h2>
+</div>
+<div class="col-md-3">
+<h3 class="mb-0">Complaints <br class="d-lg-none"> Raised</h3>
+<h2>[[${complaintsCount}]]</h2>
+</div>
+<div class="col-md-3">
+<h3 class="text-white">Complaints Closed</h3>
+<h2>[[${closedComplaintsCount}]]</h2>
+</div>
+</div>
+ 
+  </div>
+</section>
+<!-- Footer Section -->
+<footer id="footer" class="footer-section text-white" style="background-color: #1A2238; padding: 20px;display: flex;align-items: center;justify-content: center;">
+<div class="container" style="margin: 0;">
+<div class="row-need" style="margin: 0;    display: flex;">
+<div class="col-md-3 urbanvoice">
+<h3 style="font-size: 20px;">UrbanVoice</h3>
+<img src="path/to/urbanvoice-icon.png" alt="UrbanVoice Icon" style="width: 50px;">
+</div>
+<div class="col-md-10 contact-info">
+<div class="row" style="margin-top: 0;">
+<div class="col-md-4">
+<h4 style="font-size: 16px;">Find Us</h4>
+<p style="font-size: 14px;">Bengaluru, India</p>
+</div>
+<div class="col-md-4">
+<h4 style="font-size: 16px;">Call Us</h4>
+<p style="font-size: 14px;">+123 456 7890</p>
+</div>
+<div class="col-md-4">
+<h4 style="font-size: 16px;">Mail Us</h4>
+<p style="font-size: 14px;">urbanvoice360@gmail.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-md-12 text-center">
+<p style="font-size: 14px;">&copy; 2024 UrbanVoice. All rights reserved.</p>
+<div class="social-icons">
+<a href="#" style="text-decoration: none;"><i class="fab fa-facebook-f" style="font-size: 18px;"></i></a>
+<a href="#" style="text-decoration: none;"><i class="fab fa-twitter" style="font-size: 18px;"></i></a>
+<a href="#" style="text-decoration: none;"><i class="fab fa-instagram" style="font-size: 18px;"></i></a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+ 
+ 
+<!-- Bootstrap JS (optional) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>
+ 
 </html>

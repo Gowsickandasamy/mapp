@@ -5,10 +5,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" th:href="@{/css/navbarUtility.css}">
+	<link rel="stylesheet" th:href="@{/css/userNav.css}">
 	<link rel="stylesheet" th:href="@{/css/addingStyle.css}">
 	<link rel="stylesheet" th:href="@{/css/trackComplaints.css}">
 	<link rel="icon" type="image/x-icon" th:href="@{/css/favicon.png}">
 	<script src="https://kit.fontawesome.com/7d53697cb5.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 	<script th:src="@{/js/script.js}"></script>
 	<title>Complaint Details</title>
 	<style>
@@ -30,32 +36,31 @@
 </head>
 	<body>
 		<header class="homeheader">
-			<div id="navbar" class="navbar top">
-				<h1 class="logo">
-					<span class="text-primary"><i class="fa-solid fa-handshake"></i>
-					</span>urbanvoice
-				</h1>
-				<nav>
-					<ul>
-						<li>
-							<div class="user-icon">
-								<span>[[${userName}]]</span> &nbsp;
-								<button class="user-icon-button">
-									<i class="fa-solid fa-user"></i>
-								</button>
-								<div class="dropdown-content">
-									<a th:href="@{/urbanvoice/user/view-profile}">View Profile</a>
-									<a th:href="@{/urbanvoice/user/change-password}">Change Password</a>
-									<a th:href="@{/logout}" onclick="confirmLogout(event)">Logout <i
-											class="fa-solid fa-right-from-bracket"
-											style="color: #e40707; margin-left: 5px; font-size: 20px;"></i>
-									</a>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</nav>
-			</div>
+			<nav class="user_nav">
+				<div class="wrapper">
+				  <div class="logo"><a th:href="@{/urbanvoice/user/track-complaints}">Logo</a></div>
+				  <input type="radio" name="slider" id="menu-btn">
+				  <input type="radio" name="slider" id="close-btn">
+				  <ul class="nav-links">
+					<label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+					<li><a href="#">[[${userName}]]</a></li>
+					<li>
+						<button class="user-icon-button">
+							<i class="fa-solid fa-user"></i>
+						</button>
+						<input type="checkbox" id="showDrop">
+						<!-- <label for="showDrop" class="mobile-item">Dropdown Menu</label> -->
+						<ul class="drop-menu">
+							<!-- <li><a th:href="@{/urbanvoice/user/view-profile}" >View Profile</a></li>
+							<li><a th:href="@{/urbanvoice/user/change-password}" >Change Password</a></li> -->
+							<li><a th:href="@{/logout}" onclick="confirmLogout(event)"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout </a></li>
+						  
+						</ul>
+					  </li>
+				  </ul>
+				  <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+				</div>
+			  </nav>
 		</header>
 		
 		<div class="tableCaption">

@@ -1,160 +1,169 @@
-#navbar nav li a i {
-	color: #4caf50;
-	background-color: rgba(16, 14, 14, 0.2); 
-	padding : 6px 6px;
-	font-style: bold;
-	border: none;
-	border-radius: 100%;
-}
-
-html {
-	scroll-behavior: smooth;
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	height: 100vh;
+    font-family: Arial, sans-serif;
 }
 
+/* Navigation Styles */
 nav {
-	display: flex;
-	justify-content: space-between;
-	padding: 20px 0px;
-	background-color: rgba(237, 237, 233, 0.9);
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 5;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    border-radius: 0;
+    background: #1A2238;
 }
 
-nav img {
-	width: 50px;
-	margin-right: 10px;
+.navbar {
+    padding: 15px;
 }
 
-nav a {
-	color: #333;
-	text-decoration: none;
-	margin: 0 15px;
-	padding-bottom: 5px;
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-nav #login {
-	float: right;
-}
-
-nav a:hover {
-	border-bottom: #4caf50 3px solid;
-	padding-bottom: 6px;
+.logo a {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .nav-links {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-			font-size: 18px;
+    display: flex;
+    list-style: none;
 }
 
-.nav-links i{
-			color: #28a745;
-			background-color: #fff;
-			border-radius: 50%;
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 9px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background: #3A3B3C;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        max-width: 350px;
+        top: 0;
+        left: -100%;
+        background: #1A2238;
+        padding: 50px 10px;
+        line-height: 50px;
+        overflow-y: auto;
+        box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.18);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.show {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 10px;
+    }
+
+    .nav-links li a {
+        padding: 0 20px;
+        display: block;
+        font-size: 20px;
+    }
+}
+
+/* Home Section Styles */
+.home-section {
+    background-image: url('../css/Vidhana.jpg');
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .banner {
-            box-sizing: border-box;
-            padding: 20px 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 70%;
-            height: fit-content;
-            border-radius: 25px;
-            background-color: rgba(0, 0, 0, 0.5);
-            margin: auto;
-            line-height: 25px;
-        }
+    width: 70%;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 25px;
+    margin-bottom: 10rem;
+}
 
 .banner h1,
-        h2 {
-            color: #4caf50;
+.banner h2 {
+    color: #4caf50;
 }
 
-.home-section {
-			background-image: url('../css/Vidhana.jpg');
-            background-size: cover;
-            color: #fff;
-            height: 100vh;
-            border: 1px solid white;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.row {
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.btn {
-            color: #4CAF50;
-            background-color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            font-size: 16px;
-            margin-top: 20px;
+.item {
+    flex: 1;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.btn:hover {
-            background-color: #4CAF50;
-            color: #fff;
+/* Footer Styles */
+#footer {
+    background-color: #1A2238;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.about-section {
-			background-image: url('../css/metro.jpg');
-            background-size: cover;
-            color: #fff;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+.contact-info {
+    margin-top: 10px;
 }
 
-.about-section .banner {
-            margin: auto;
-            background-color: rgba(0, 0, 0, 0.8);
+/* Responsive Typography */
+@media screen and (max-width: 768px) {
+    section h1{
+        font-size: 24px;
+    }
+    section h3{
+        font-size: 24px;
+    }s
+    section  .lead{
+        font-size: 14px;
+    }
+    section .row{
+        margin-top: 10px;
+    }
+    footer > .container > .row-need{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 
-.summary {
-           width: 100%;
-           display: flex;
-           justify-content: space-between;
-}
-
-footer {
-         width: 100%;
-         background-color: #333;
-         color: #fff;
-         padding-bottom: 5px;
-}
-
-footer h3 {
-            text-align: center;
-}
-
-.contact-details {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 20px;
-            line-height: 25px;
-            color: #fff;
-}
-
-.contact-details h2 {
-            color: #fff;
-}

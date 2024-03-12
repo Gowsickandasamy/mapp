@@ -45,7 +45,7 @@ label {
 	margin-bottom: -10px;
 	font-size: 15px;
 	font-weight: bold;
-	color: #4caf50;
+	color: rgba(13, 110, 253, 1);
 	margin-left: 5px;
 }
 
@@ -117,14 +117,14 @@ nav {
 	font-size: 27px;
 }
 
-#navbar nav li a i {
+/* #navbar nav li a i {
 	color: #4caf50;
 	background-color: rgba(16, 14, 14, 0.2);
 	padding: 6px 6px;
 	font-style: bold;
 	border: none;
 	border-radius: 100%;
-}
+} */
 
 p {
 	font-family: 'Georgia', Times, serif;

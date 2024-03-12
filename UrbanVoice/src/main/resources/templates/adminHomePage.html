@@ -8,10 +8,11 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" th:href="@{/css/navbarUtility.css}">
+	<!-- <link rel="stylesheet" th:href="@{/css/navbarUtility.css}"> -->
 	<link rel="stylesheet" th:href="@{/css/tableUtility.css}">
 	<link rel="stylesheet" th:href="@{/css/adminHomePage.css}">
 	<link rel="stylesheet" th:href="@{/css/viewModal.css}">
+	<link rel="stylesheet" th:href="@{/css/userNav.css}">
 	<script th:src="@{/js/script.js}"></script>
 	<script th:src="@{/js/modal.js}"></script>
 	<link rel="icon" type="image/x-icon" th:href="@{/css/favicon.png}">
@@ -20,7 +21,36 @@
 </head>
 <body>
 	<header class="homeheader">
-		<div id="navbar" class="navbar top">
+		<nav class="user_nav">
+			<div class="wrapper">
+			  <div class="logo"><a th:href="@{/urbanvoice/user/track-complaints}">Logo</a></div>
+			
+			  <ul class="nav-links">
+				
+				<li class="buttons"><a th:href="@{/urbanvoice/admin/officers}">Officers</a></li>
+				<li class="buttons"><a th:href="@{/urbanvoice/admin/jurisdictions}">Jurisdictions</a></li>
+				<li><a href="#">[[${adminName}]]</a></li>
+
+				<li>
+					<button class="user-icon-button">
+						<i class="fa-solid fa-user"></i>
+					</button>
+					<input type="checkbox" id="showDrop">
+					
+					<ul class="drop-menu">
+						<li><a th:href="@{/urbanvoice/admin/officers/add}">Add Officer</a></li>
+						<li><a th:href="@{/urbanvoice/admin/jurisdictions/add}">Add Jurisdiction</a></li>
+						<li><a th:href="@{/urbanvoice/admin/view-profile}">View Profile</a></li>
+						<li><a th:href="@{/urbanvoice/admin/change-password}">Change Password</a></li>
+						<li><a th:href="@{/logout}" onclick="confirmLogout(event)"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout </a></li>
+					  
+					</ul>
+				  </li>
+			  </ul>
+			  <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+			</div>
+		  </nav>
+		<!-- <div id="navbar" class="navbar top">
 			<h1 class="logo">
 				<span class="text-primary"><i class="fa-solid fa-handshake" style="color: #000;"></i>
 					&nbsp;</span>UrbanVoice</h1>
@@ -48,7 +78,7 @@
 					</li>
 				</ul>
 			</nav>
-		</div>
+		</div> -->
 	</header>
 
 	<div class="tableCaption">

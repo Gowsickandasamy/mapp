@@ -1,7 +1,18 @@
-.container {
-	height: 61%;
-	width: 54%;
-	margin: 6.5% 10% 10% 22%;
+.box_container1{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 70vh;
+	
+}
+
+.user_containerr {
+	height: 380px;
+	width: 800px;
+	background-color: #E1E2E2;
+	position: relative;
+	/* margin: 6.5% 10% 10% 22%; */
 }
 
 .personal-details-body {
@@ -44,6 +55,7 @@
 p {
 	font-weight: bold;
 	color: #4caf50;
+	font-size: 16px;
 }
 
 .count {
@@ -52,11 +64,34 @@ p {
 	height: 27px;
 	width: 27px;
 }
+.button_viewProfile{
+	height: 60px;
+    width: 180px;
+    position: relative;
+    bottom: 60px;
+    left: 300px;
+    font-size: 14px;
+    cursor: pointer;
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+.button_viewProfile:hover{
+	background-color: #4caf50;
+}
+.button_viewProfile i{
+	display: inline;
+    margin: auto;
+}
+.button_viewProfile a{
+	padding: 0;
+	display: block;
+    margin: auto;
 
+}
 .buttons{
-	margin-top: -215px;
+	/* margin-top: -215px;
 	float: right;
-	margin-right: 367px;
+	margin-right: 367px; */
 }
 
 .buttons .pages {
@@ -76,11 +111,28 @@ p {
 .buttons .pages i {
 	font-size: 18px;
 }
+.back_button{
+	height: 50px;
+    width: 50px; /* Adjusted width for a perfect circle */
+    border-radius: 50%;
+	border: none;
+	cursor: pointer;
+}
+.back_button:hover {
+	background-color: #4caf50;
+}
+.back_button i{
+	display: block;
+    margin: auto;
+	font-size: 33px;
+}
 
 .tableCaption{
 	display: flex;
 	justify-content: center;
-	margin-bottom: -95px;
+	width: 100%;
+	/* margin-bottom: -95px; */
+	justify-content: space-around;
 }
 
 .tableCaption p {
@@ -88,9 +140,11 @@ p {
 	font-style: inherit;
 	background-color: rgba(255, 255, 255, 0.5);
 	color: black;
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: 600;
 	padding: 5px 5px;
+	position: relative;
+    right: 300px
 }
 
 .popup {
@@ -111,4 +165,8 @@ p {
 
 .popup p {
 	color: white;
+}
+
+.detail_header{
+	font-size: 16px;
 }

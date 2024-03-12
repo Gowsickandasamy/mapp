@@ -2,35 +2,75 @@
 function confirmLogout(event) {
 	event.preventDefault();
 
-	const dialogContainer = document.createElement('div');
-	dialogContainer.classList.add('custom-dialog-container');
+    const dialogContainer = document.createElement('div');
+    dialogContainer.classList.add('modal', 'fade');
+    dialogContainer.id = 'logoutModal';
+    dialogContainer.tabIndex = '-1';
+    dialogContainer.role = 'dialog';
+    dialogContainer.ariaLabelledby = 'logoutModalLabel';
+    dialogContainer.ariaHidden = 'true';
 
-	const dialog = document.createElement('div');
-	dialog.classList.add('custom-dialog');
+    const dialog = document.createElement('div');
+    dialog.classList.add('modal-dialog', 'modal-dialog-centered');
+    dialog.role = 'document';
 
-	const message = document.createElement('p');
-	message.textContent = 'Are you sure you want to logout?';
+    const content = document.createElement('div');
+    content.classList.add('modal-content');
 
-	const confirmBtn = document.createElement('button1');
-	confirmBtn.textContent = 'Yes';
-	confirmBtn.addEventListener('click', function() {
-		window.location.href = "/logout";
-		dialogContainer.remove();
-	});
+    const header = document.createElement('div');
+    header.classList.add('modal-header');
 
-	const cancelBtn = document.createElement('button2');
-	cancelBtn.textContent = 'No';
-	cancelBtn.addEventListener('click', function() {
-		dialogContainer.remove();
-	});
+    const title = document.createElement('h5');
+    title.classList.add('modal-title');
+    title.id = 'logoutModalLabel';
+    title.textContent = 'Logout';
 
-	dialog.appendChild(message);
-	dialog.appendChild(confirmBtn);
-	dialog.appendChild(cancelBtn);
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.classList.add('close');
+    closeButton.dataset.dismiss = 'modal';
+    closeButton.ariaLabel = 'Close';
+    closeButton.innerHTML = '<span aria-hidden="true">&times;</span>';
 
-	dialogContainer.appendChild(dialog);
+    header.appendChild(title);
+    header.appendChild(closeButton);
 
-	document.body.appendChild(dialogContainer);
+    const body = document.createElement('div');
+    body.classList.add('modal-body');
+    body.innerHTML = '<p>Are you sure you want to logout?</p>';
+
+    const footer = document.createElement('div');
+    footer.classList.add('modal-footer');
+
+    const confirmBtn = document.createElement('button');
+    confirmBtn.type = 'button';
+    confirmBtn.classList.add('btn', 'btn-primary');
+    confirmBtn.textContent = 'Yes';
+    confirmBtn.addEventListener('click', function () {
+        window.location.href = "/logout";
+    });
+
+    const cancelBtn = document.createElement('button');
+    cancelBtn.type = 'button';
+    cancelBtn.classList.add('btn', 'btn-secondary');
+    cancelBtn.dataset.dismiss = 'modal';
+    cancelBtn.textContent = 'No';
+
+    footer.appendChild(confirmBtn);
+    footer.appendChild(cancelBtn);
+
+    content.appendChild(header);
+    content.appendChild(body);
+    content.appendChild(footer);
+
+    dialog.appendChild(content);
+    dialogContainer.appendChild(dialog);
+
+    document.body.appendChild(dialogContainer);
+
+    // Show the modal
+    const modal = new bootstrap.Modal(dialogContainer);
+    modal.show();
 }
 
 /* Custom Edit Jurisdiction Dialog Event */
