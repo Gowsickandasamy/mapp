@@ -323,3 +323,5 @@
 2024-03-12 17:35:34.610 [http-nio-9006-exec-4] [39mDEBUG[0;39m c.t.u.s.ComplaintServiceImpl - [36mcom.team2.urbanvoice.serviceimpl.ComplaintServiceImpl.getAllComplaints(48)[0;39m - Retrieving all the Complaints registered !
 2024-03-12 17:35:46.401 [http-nio-9006-exec-6] [39mDEBUG[0;39m c.t.u.serviceimpl.AdminServiceImpl - [36mcom.team2.urbanvoice.serviceimpl.AdminServiceImpl.findAdminByEmail(39)[0;39m - Retrieving Admin using Email: hegdeaj21@gmail.com
 2024-03-12 17:35:46.401 [http-nio-9006-exec-6] [39mDEBUG[0;39m c.t.u.s.JurisdictionServiceImpl - [36mcom.team2.urbanvoice.serviceimpl.JurisdictionServiceImpl.getAllJurisdictions(61)[0;39m - Retrieving all the Jurisdictions registered !
+2024-03-12 17:35:48.074 [http-nio-9006-exec-5] [39mDEBUG[0;39m c.t.u.serviceimpl.AdminServiceImpl - [36mcom.team2.urbanvoice.serviceimpl.AdminServiceImpl.findAdminByEmail(39)[0;39m - Retrieving Admin using Email: hegdeaj21@gmail.com
+2024-03-12 17:35:48.074 [http-nio-9006-exec-5] [39mDEBUG[0;39m c.t.u.s.ComplaintServiceImpl - [36mcom.team2.urbanvoice.serviceimpl.ComplaintServiceImpl.getAllComplaints(48)[0;39m - Retrieving all the Complaints registered !
