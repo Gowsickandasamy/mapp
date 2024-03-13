@@ -7,9 +7,9 @@ label {
 	margin-bottom: 10px;
 	font-size: 15px;
 	font-weight: bold;
-	color: #4caf50;
+	color: rebeccapurple;
 }
 
 .tableCaption {
-	margin-top: -20px !important;
+	margin-top: 10px !important;
 }

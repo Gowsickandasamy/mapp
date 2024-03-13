@@ -7,7 +7,7 @@ section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 50px;
+	margin-top: 90px;
 }
 
 .container {
@@ -65,10 +65,12 @@ section {
 
 .card-body {
 	padding: 30px;
+	padding-top: 15px;
 }
 
 h2 {
 	color: #343a40;
+	margin-bottom:10px;
 }
 
 h3 {
@@ -88,35 +90,52 @@ h3 {
 	outline: none;
 }
 
+.form-control::placeholder {
+	opacity: 0.7;
+	color: black;
+	font-size: 14px;
+}
+
 .form-control:focus {
 	border-color: #007bff;
+	border: none;
 	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.buttons_login{
+	display: flex;
+    justify-content: flex-start;
+	gap: 20px;
+    border: none;
+    outline: none;
 }
 
 .btn-primary {
-	background-color: #007bff;
-	border: 1px solid #007bff;
+	background-color: #F0F0F0;
+	border: 1px solid #ced4da;
 	border-radius: 5px;
 	padding: 10px 20px;
 	font-size: 18px;
+	color: black;
 }
 
 .btn-primary:hover {
-	background-color: #0056b3;
-	border-color: #0056b3;
+	background-color: #1A2238;
+	color: whitesmoke;
+	 /* border-color: #0056b3; */
 }
 
 .btn-secondary {
-	background-color: #6c757d;
-	border: 1px solid #6c757d;
+	background-color: #F0F0F0;
+	border: 1px solid #ced4da;
+	color: black;
 	border-radius: 5px;
 	padding: 10px 20px;
 	font-size: 18px;
 }
 
 .btn-secondary:hover {
-	background-color: #545b62;
-	border-color: #545b62;
+	background-color: #1A2238;
+	color: whitesmoke;
 }
 
 .mt-3 {
@@ -141,13 +160,15 @@ a:hover {
 }
 
 @media screen and (max-width: 768px) {
-	.container{
+	.container {
 		width: 350px;
 		height: 400px;
 	}
-	.card{
+
+	.card {
 		height: 100%;
 	}
+
 	.card-body {
 		padding: 15px;
 	}
@@ -200,14 +221,15 @@ a:hover {
 	border: 1px solid #100e0e;
 	border-radius: 1px;
 	font-size: 16px;
+	
 }
 
 label {
 	margin-bottom: -10px;
 	font-size: 15px;
-	font-weight: bold;
 	color: rgba(13, 110, 253, 1);
 	margin-left: 5px;
+	font-weight: 500;
 }
 
 .input-field::placeholder {
@@ -401,4 +423,9 @@ button {
 	border-radius: 5px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 	z-index: 4;
+}
+
+.link_to_register {
+	font-family: "Georgia", Times, serif;
+	font-size: 13px;
 }

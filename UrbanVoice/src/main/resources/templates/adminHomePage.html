@@ -53,20 +53,22 @@
 		  </nav>
 		
 	</header>
-
-	<div class="tableCaption">
-		<p>TRACK COMPLAINTS</p>
+	<div class="admin_heading">
+		<div class="tableCaption">
+			<p>TRACK COMPLAINTS</p>
+		</div>
+		
+		<div class="status-filter">
+			<label for="statusFilter">Sort by Status :</label>
+			<select id="statusFilter" onchange="filterTableByStatus(this.value)">
+				<option value="ALL">All</option>
+				<th:block th:each="status : ${allStatuses}">
+					<option th:value="${status}" th:text="${status}"></option>
+				</th:block>
+			</select>
+		</div>
 	</div>
 	
-	<div class="status-filter">
-	    <label for="statusFilter">Sort by Status :</label>
-	    <select id="statusFilter" onchange="filterTableByStatus(this.value)">
-	    	<option value="ALL">All</option>
-	        <th:block th:each="status : ${allStatuses}">
-	            <option th:value="${status}" th:text="${status}"></option>
-	        </th:block>
-	    </select>
-	</div>
 	
 	<div id="popup" class="popup">
 		<p th:if="${successMessage}" th:text="${successMessage}"></p>

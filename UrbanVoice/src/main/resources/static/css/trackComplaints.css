@@ -50,14 +50,23 @@ p {
 	cursor: pointer;
 	border: none;
 }
-
-.tableCaption .pages:hover {
-	color: white;
-	background-color: #4caf50;
+.back_button{
+	border: none;
+	background:none;
+}
+.tableCaption .icon:hover {
+    color: #F0F0F0;
+    background-color: rgba(26, 34, 55, 1);
+	border-radius: 10px;
 }
 
+/* .tableCaption .pages:hover {
+	color: white;
+	background-color: #4caf50;
+} */
+
 .tableCaption .icon {
-	color: #4caf50;
+	color: rgba(26, 34, 55, 1);
 	border: 2px solid white;
 	font-size: 30px;
 	font-weight: 600;

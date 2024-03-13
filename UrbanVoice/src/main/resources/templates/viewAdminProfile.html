@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" th:href="@{/css/navbarUtility.css}">
+	<link rel="stylesheet" th:href="@{/css/adminNav.css}">
 	<link rel="stylesheet" th:href="@{/css/viewingProfileStyle.css}">
 	<script th:src="@{/js/script.js}"></script>
 	<link rel="icon" type="image/x-icon" th:href="@{/css/favicon.png}">
@@ -13,41 +14,41 @@
 
 <body>
 	<header class="homeheader">
-		<div id="navbar" class="navbar top">
-			<h1 class="logo">
-				<span class="text-primary"><i
-					class="fa-solid fa-handshake photo"></i> &nbsp;</span>urbanvoice
-			</h1>
-			<nav>
-				<ul>
-					<li class="buttons"><a
-						th:href="@{/urbanvoice/admin/track-complaints}">Track Complaints</a></li>
-					<li class="buttons"><a
-						th:href="@{/urbanvoice/admin/jurisdictions}">Jurisdictions</a></li>
-					<li class="buttons"><a th:href="@{/urbanvoice/admin/officers}">Officers</a></li>
-					<li>&nbsp;</li>
-					<li>
-						<div class="user-icon">
-							<span>[[${adminName}]]</span> &nbsp;
-							<button class="user-icon-button">
-								<i class="fa-solid fa-user-tie"></i>
-							</button>
-							<div class="dropdown-content">
-								<a th:href="@{/urbanvoice/admin/officers/add}">Add Officer</a> 
-								<a th:href="@{/urbanvoice/admin/jurisdictions/add}">Add Jurisdiction</a> 
-								<a th:href="@{/logout}" onclick="confirmLogout(event)">Logout
-									<i class="fa-solid fa-right-from-bracket"
-									style="color: #e40707; margin-left: 5px; font-size: 20px;"></i>
-								</a>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</div>
+		<nav class="user_nav">
+			<div class="wrapper">
+			  <div class="logo"><a th:href="@{/urbanvoice/user/track-complaints}">Logo</a></div>
+			
+			  <ul class="nav-links">
+				
+				
+				<li class="buttons"><a th:href="@{/urbanvoice/admin/jurisdictions}">Jurisdictions</a></li>
+				<li><a href="#">[[${adminName}]]</a></li>
+
+				<li>
+					<button class="user-icon-button">
+						<i class="fa-solid fa-user"></i>
+					</button>
+					<input type="checkbox" id="showDrop">
+					
+					<ul class="drop-menu">
+						<li><a th:href="@{/urbanvoice/admin/officers/add}">Add Officer</a></li>
+						<li><a th:href="@{/urbanvoice/admin/jurisdictions/add}">Add Jurisdiction</a></li>
+						<li><a th:href="@{/urbanvoice/admin/view-profile}">View Profile</a></li>
+						<li><a th:href="@{/urbanvoice/admin/change-password}">Change Password</a></li>
+						<li><a th:href="@{/logout}" onclick="confirmLogout(event)"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout </a></li>
+					  
+					</ul>
+				  </li>
+			  </ul>
+			  <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+			</div>
+		  </nav>
+		
 	</header>
 	
-	<div class="tableCaption">
+	<div class="section">
+		
+	<div class="tableCaption view_profile">
 		<p>VIEW PROFILE</p>
 	</div>
 	
@@ -77,24 +78,25 @@
 				</div>
 				<div class="Personal-details">
 					<div class="personal-details-row-1">
-						<div>
+						<div class="admin_value1">
 							<h3>Jurisdictions Count</h3>
-							<p th:text="${juryCount}" class="count"></p>
+							<p th:text="${juryCount}" class="admin_count"></p>
 						</div>
-						<div>
+						<div class="admin_value1">
 							<h3>Officers Count</h3>
-							<p th:text="${officersCount}" class="count"></p>
+							<p th:text="${officersCount}" class="admin_count"></p>
 						</div>
-						<div>
-							<h3>Complaints Raised</h3>
-							<p th:text="${complaintsCount}" class="count"></p>
-						</div>
+						
 					</div>
 					<div class="Personal-details">
 						<div class="personal-details-row-1">
-							<div>
+							<div class="admin_value1">
+								<h3>Complaints Raised</h3>
+								<p th:text="${complaintsCount}" class="admin_count"></p>
+							</div>
+							<div class="admin_value1">
 								<h3>Registered Users</h3>
-								<p th:text="${usersCount}" class="count"></p>
+								<p th:text="${usersCount}" class="admin_count"></p>
 							</div>
 						</div>
 					</div>
@@ -102,16 +104,20 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="buttons">
-		<a th:href="@{/urbanvoice/admin/change-password}">
-			<button type="button"class="pages"><i class="fa-solid fa-key"></i>&nbsp;Change Password</button>
-		</a>
+	<div class="admin_view_buttons">
+		<div class="admin_buttons">
+			<a th:href="@{/urbanvoice/admin/change-password}">
+				<button type="button"class="pages"><i class="fa-solid fa-key"></i>&nbsp;Change Password</button>
+			</a>
+		</div>
+		<div class="admin_buttons" >
+			<a th:href="@{/urbanvoice/admin/add-admin}">
+				<button type="button"class="pages"><i class="fa-solid fa-user-plus"></i>&nbsp;Add Admin</button>
+			</a>
+		</div>
 	</div>
-	<div class="buttons" style="margin-right: 550px !important;">
-		<a th:href="@{/urbanvoice/admin/add-admin}">
-			<button type="button"class="pages"><i class="fa-solid fa-user-plus"></i>&nbsp;Add Admin</button>
-		</a>
+	
+	
 	</div>
 </body>
 </html>
