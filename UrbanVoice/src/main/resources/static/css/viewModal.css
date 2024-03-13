@@ -12,7 +12,7 @@
 }
 
 .modal-header {
-	background-color: #FB8122;
+	background-color: rgba(26, 34, 55, 1);
 	color: white;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
@@ -41,4 +41,8 @@
 #responsePlaceholder {
 	font-size: 16px;
 	color: #333;
+}
+
+.close > span{
+	color: white;
 }

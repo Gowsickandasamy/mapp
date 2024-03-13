@@ -4,9 +4,31 @@
 	justify-content: center;
 	align-items: center;
 	height: 70vh;
-	
+	margin-top: 70px;
 }
-
+.admin_value1{
+	text-align: center;
+}
+.section{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+	margin-top: 40px;
+}
+.admin_view_buttons{
+	width: 60%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	margin-top: 20px;
+}
+.container{
+	width: 60%;
+}
 .user_containerr {
 	height: 380px;
 	width: 800px;
@@ -23,7 +45,7 @@
 
 .profile-photo i {
 	font-size: 60px;
-	background: #4caf50;
+	background: rebeccapurple;
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
@@ -32,6 +54,7 @@
 	align-items: center;
 	margin-top: 100px;
 	margin-left: 50px;
+	opacity: 0.7;
 }
 
 .personal-details {
@@ -53,14 +76,18 @@
 }
 
 p {
-	font-weight: bold;
-	color: #4caf50;
+	font-weight: 400;
+	color: rebeccapurple;
 	font-size: 16px;
+}
+.admin_count{
+	background-color: rebeccapurple;
+	color: white;
 }
 
 .count {
-	background-color: #4caf50;
-	color: black;
+	background-color: rebeccapurple;
+	color: white;
 	height: 27px;
 	width: 27px;
 }
@@ -75,8 +102,18 @@ p {
 	border: 1px solid grey;
 	border-radius: 5px;
 }
+.view_profile{
+	text-align: center;
+}
 .button_viewProfile:hover{
-	background-color: #4caf50;
+	background-color: rgba(26, 34, 55, 1);
+}
+.button_viewProfile:hover .link_to_password {
+	color: white;
+	background-color: rgba(26, 34, 55, 1);
+}
+.button_viewProfile:hover i{
+	color: white;
 }
 .button_viewProfile i{
 	display: inline;
@@ -88,13 +125,21 @@ p {
     margin: auto;
 
 }
+.link_to_password{
+	color: black;
+	text-decoration: none;
+}
+.link_to_password:hover{
+
+	text-decoration: none;
+}
 .buttons{
 	/* margin-top: -215px;
 	float: right;
 	margin-right: 367px; */
 }
 
-.buttons .pages {
+.admin_buttons .pages {
 	padding: 10px 10px;
 	font-size: 16px;
 	font-style: italic;
@@ -103,28 +148,34 @@ p {
 	border: none;
 }
 
-.buttons .pages:hover {
+.admin_buttons .pages:hover {
 	color: white;
-	background-color: #4caf50;
+	background-color: rgba(26, 34, 55, 1);
 }
 
-.buttons .pages i {
+.admin_buttons .pages i {
 	font-size: 18px;
 }
 .back_button{
 	height: 50px;
     width: 50px; /* Adjusted width for a perfect circle */
-    border-radius: 50%;
+    /* border-radius: 50%; */
 	border: none;
 	cursor: pointer;
+	background: none;
 }
-.back_button:hover {
-	background-color: #4caf50;
+.back_button i:hover {
+	color: #F0F0F0;
+    background-color: rgba(26, 34, 55, 1);
+	border-radius: 10px;
 }
 .back_button i{
-	display: block;
-    margin: auto;
-	font-size: 33px;
+	color: rgba(26, 34, 55, 1);
+	/* border: 2px solid white; */
+	font-size: 30px;
+	font-weight: 600;
+	padding: 5px 5px;
+	cursor: pointer
 }
 
 .tableCaption{
@@ -143,8 +194,7 @@ p {
 	font-size: 24px;
 	font-weight: 600;
 	padding: 5px 5px;
-	position: relative;
-    right: 300px
+	
 }
 
 .popup {

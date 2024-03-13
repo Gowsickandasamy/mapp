@@ -49,9 +49,9 @@ table {
 	margin-top: 10px;
 	cursor: pointer;
 	border: none;
-	background-color: #FB8122;
+	background-color: #F0F0F0;
 	opacity: 1;
-	color: white;
+	color: rgba(26, 34, 55, 1);
 	font-family: 'Poppins', sans-serif;
 }
 .track_complaints{
@@ -69,8 +69,8 @@ table {
 }
 
 .tableCaption .pages:hover {
-	color: white;
-	background-color: #FB8122;
+	color: BLACK;
+    background-color: rgba(26, 34, 56, 0.5);
 	opacity: 1;
 	border:none;
 }
@@ -103,14 +103,21 @@ table {
 }
 
 .pages {
-	font-size: 14.5px;
+	font-size: 14px;
 	padding: 4px;
 	cursor: pointer;
 	border: 1px solid black;
 }
 
 .pages:hover {
-	background-color: #FB8122;
+	background-color: rgba(26, 34, 55, 1);
 	color: white;
 	border: none;
+}
+
+
+@media (max-width:960px){
+	nav .wrapper{
+		width: 100%;
+	}
 }

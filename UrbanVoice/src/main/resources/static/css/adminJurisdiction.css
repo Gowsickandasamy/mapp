@@ -39,7 +39,7 @@ td:nth-child(5) {
 
 .tableCaption .pages:hover {
 	color: white;
-	background-color: #4caf50;
+	background-color: rgba(26, 34, 55, 1);
 }
 
 .popup {

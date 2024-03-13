@@ -4,7 +4,7 @@ body {
 }
 
 table {
-	width: 95%;
+	width: 98%;
 }
 .tableCaption{
 	width: 90%;
@@ -18,7 +18,11 @@ table {
 	font-weight: 600;
 	margin-left: 160px !important;
 }
-
+.admin_heading{
+	display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
 .complaintMessage {
 	text-align: center;
 	font-weight: bold;
@@ -37,7 +41,7 @@ table {
 }
 
 .pages:hover {
-	background-color: #4caf50;
+	background-color: rgba(26, 34, 55, 1);
 	color: white;
 	border: none;
 }
@@ -66,8 +70,8 @@ table {
 }
 
 .tick:hover {
-	background-color: #4caf50;
-	border: none;
+	background-color: rgba(26, 34, 55, 1);
+	border: 1px solid black;
 	color: white;
 }
 
@@ -114,7 +118,7 @@ table {
 }
 
 .maps-button:hover{
-	background-color: #4caf50;
+	background-color: rgba(26, 34, 55, 1);
 	color: white;
-	border: 1px solid  #4caf50;
+	/* border: 1px solid  #4caf50; */
 }
