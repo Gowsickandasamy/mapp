@@ -103,16 +103,19 @@
                         title="Phone Number Should contain only Digits" autocomplete="off" placeholder="Enter your Phone Number" required>
 
                     <label for="email">Email <span class="required-text">*</span></label>
-                    <input type="email" class="input-field" id="email" name="email"
-                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" autocomplete="off" placeholder="Enter your Email"
-                        oninput="toggleVerifyButton()" required>
+                    <div class="email_column">
+                        <input type="email" class="input-field" id="email" name="email"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" autocomplete="off" placeholder="Enter your Email"
+                            oninput="toggleVerifyButton()" required>
+                        
+                        <button type="button" class="verify-btn" id="verifyButton" onclick="generateOtp()">Verify</button>
+                    </div>
+                    
 
-                    <button type="button" class="verify-btn" id="verifyButton" onclick="generateOtp()">Verify</button>
 
-
-                    <button type="submit" class="submit-btn" id="submitButton" disabled>Register</button>
+                    <button type="submit" class="submit-btn" id="submitButton" disabled="true">Register</button>
                     <p>Already Registered?
-                        <a href="/urbanvoice/login">Click here to Login</a>
+                        <a class="link_to_register" href="/urbanvoice/login">Click here to Login</a>
                     </p>
                 </form>
             </div>
@@ -181,7 +184,7 @@
         function enableRegisterButton() {
             let registerButton = document.getElementById("submitButton");
             registerButton.disabled = false;
-            registerButton.style.backgroundColor = "green";
+            registerButton.style.backgroundColor = "white";
         }
 
 
@@ -237,7 +240,7 @@
 
 
                         document.getElementById("validateButton").disabled = true;
-                        document.getElementById('validateButton').classList.add('green');
+                        document.getElementById('validateButton').classList.add('red');
                         document.getElementById("otpmessage").innerText = "Otp verified succesfully";
 
                         enableRegisterButton();
