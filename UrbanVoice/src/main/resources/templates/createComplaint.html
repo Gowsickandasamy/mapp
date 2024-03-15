@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/navbarUtility.css}">
+    <link rel="stylesheet" th:href="@{/css/userNav.css}">
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/map.js}"></script>
+    <link rel="icon" type="image/x-icon" th:href="@{/css/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/addingStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/createComplaint.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
+    <title>Create Complaint</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+/* Add your custom CSS styles here */
+/* This is just placeholder CSS, you can add your own styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+ 
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+   
+}
+ 
+.close {
+    position: relative;
+    top: -330px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    left: 16px;
+}
+ 
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+ 
+#mapComponent {
+    height: 300px;
+}
+#setLocationButton{
+    cursor: pointer;
+    position: relative;
+    left: 240px;
+   
+}
+</style>
+</head>
+ 
+<body>
+    <header class="homeheader">
+        <nav class="user_nav">
+			<div class="wrapper">
+			  <div class="logo"><a th:href="@{/urbanvoice/user/track-complaints}">Logo</a></div>
+			  <input type="radio" name="slider" id="menu-btn">
+			  <input type="radio" name="slider" id="close-btn">
+			  <ul class="nav-links">
+				<label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+				<li><a href="#">[[${userName}]]</a></li>
+				<li>
+					<button class="user-icon-button">
+						<i class="fa-solid fa-user"></i>
+					</button>
+					<input type="checkbox" id="showDrop">
+					<!-- <label for="showDrop" class="mobile-item">Dropdown Menu</label> -->
+					<!-- <ul class="drop-menu">
+						<li><a th:href="@{/urbanvoice/user/view-profile}" >View Profile</a></li>
+						<li><a th:href="@{/urbanvoice/user/change-password}" >Change Password</a></li>
+						<li><a th:href="@{/logout}" onclick="confirmLogout(event)">Logout </a></li>
+					  
+					</ul> -->
+				  </li>
+			  </ul>
+			  <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+			</div>
+		  </nav>
+    </header>
+ 
+    <div class="tableCaption">
+        <p>CREATE COMPLAINT</p>
+    </div>
+ 
+    <form th:action="@{/urbanvoice/user/create-complaint}" method="post" th:object="${complaint}" id="complaintForm">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 15px;">
+            <div style="flex-basis: calc(33.33% - 10px); margin-right: 10px;">
+                <label for="area">Area :</label>
+                <select id="area" name="area" onchange="updateWards()" th:field="*{area}" required>
+                    <option value="" selected> ---- Select Area ---- </option>
+                    <option th:each="jury : ${jurisdictions}" th:value="${jury}" th:text="${jury}"></option>
+                </select>
+            </div>
+ 
+            <div style="flex-basis: calc(33.33% - 10px); margin-right: 10px;">
+                <label for="ward">Ward :</label>
+                <select id="ward" name="ward" onchange="updateLayouts()" th:field="*{ward}" required>
+                    <option value=""> ---- Select Ward ---- </option>
+                </select>
+            </div>
+ 
+            <div style="flex-basis: calc(33.33% - 10px);">
+                <label for="layout">Layout :</label>
+                <select id="layout" name="layout" th:field="*{layout}" required>
+                    <option value=""> ---- Select Layout ---- </option>
+                </select>
+            </div>
+        </div>
+ 
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 15px;">
+            <div style="flex-basis: calc(33.33% - 10px); margin-right: 10px;">
+                <label for="address">Address<span class="required-text">&nbsp;*</span> :</label>
+                <input type="text" id="address" name="address" th:field="*{address}" maxlength="255"
+                       placeholder="Enter your Address" required />
+            </div>
+ 
+            <div style="flex-basis: calc(33.33% - 10px); margin-right: 10px;">
+                <label for="landmark">Landmark<span class="required-text">&nbsp;*</span> :</label>
+                <input type="text" id="landmark" name="landmark" th:field="*{landmark}" maxlength="50"
+                       placeholder="Enter a Landmark" required />
+            </div>
+ 
+            <div style="flex-basis: calc(33.33% - 10px);">
+                <label for="issue">Issue<span class="required-text">&nbsp;*</span> :</label>
+                <select id="issue" name="issue" th:field="*{issue}" required>
+                    <option value=""> ---- Select Issue ---- </option>
+                    <option value="Waste Management">Waste Management</option>
+                    <option value="Infrastructure Development">Infrastructure Development</option>
+                    <option value="Water Scarcity">Water Scarcity</option>
+                    <option value="Drainage and Flooding">Drainage and Flooding</option>
+                    <option value="Air Quality">Air Quality</option>
+                    <option value="Illegal Encroachments">Illegal Encroachments</option>
+                    <option value="Green Spaces and Parks">Green Spaces and Parks</option>
+                    <option value="Public Transportation">Public Transportation</option>
+                    <option value="Street Lighting">Street Lighting</option>
+                    <option value="Noise Pollution">Noise Pollution</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+        </div>
+ 
+        <div style="flex-basis: calc(33.33% - 10px); margin-right: 10px;display: flex;width: 100%;">
+           
+            <input type="text" id="location" name="location" th:field="*{location}" maxlength="50"
+                   placeholder="Set a Location" style="width: 80%;"  required/>
+                   <button onclick="openMap()" style="width: 20%;height: 44px;cursor: pointer;" >Set Location</button>
+        </div>
+ 
+        <div style="margin-bottom: 5px;">
+            <label>Comment<span class="required-text">&nbsp;*</span> :</label>
+            <textarea id="comment" name="comment" th:field="*{comment}" placeholder="Type your comment here ...."
+                      maxlength="2000" rows="5" cols="10" required></textarea>
+        </div>
+        <div>
+            <button type="submit" class="pages pages-1">Save</button>
+            <a th:href="@{/urbanvoice/user/track-complaints}">
+                <button type="button" class="pages pages-2">Cancel</button>
+            </a>
+        </div>
+    </form>
+    <div id="mapModal" class="modal">
+        <div class="modal-content">
+            <div id="mapComponent"></div>
+            <button id="setLocationButton">Set Location</button>
+            <span class="close" onclick="closeMap()">&times;</span>
+        </div>
+    </div>
+    <script>
+ 
+       
+       
+       
+        function openMap() {
+            
+            document.getElementById('mapModal').style.display = 'block';
+            initializeLeafletMap();
+        }
+ 
+        function closeMap() {
+            document.getElementById('mapModal').style.display = 'none';
+        }
+ 
+        function initializeLeafletMap() {
+ 
+            const app = document.getElementById('mapComponent');
+            const setLocationButton = document.getElementById('setLocationButton');
+ 
+            // Get current user location
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const userLocation = {
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                        };
+                        console.log('User Location:', userLocation);
+ 
+                        const map = L.map(app).setView([userLocation.latitude, userLocation.longitude], 13);
+ 
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; OpenStreetMap contributors'
+                        }).addTo(map);
+ 
+                        let markerposition = L.marker([userLocation.latitude, userLocation.longitude], {
+                            draggable: true,
+                            icon: L.icon({
+                                iconUrl: "https://cdn-icons-png.flaticon.com/128/3082/3082383.png",
+                                iconSize: [48, 48],
+                                iconAnchor: [24, 48], // Adjusted anchor point
+                            }),
+                        }).addTo(map);
+ 
+                        markerposition.on('dragend', function(event) {
+                            const marker = event.target;
+                            const position = marker.getLatLng();
+                            console.log('New marker position: ' + position.lat + ', ' + position.lng);
+                            console.log(`https://www.google.com/maps?q=${position.lat},${position.lng}`);
+                        });
+ 
+                        setLocationButton.addEventListener('click', function() {
+                            
+                            const position = markerposition.getLatLng();
+                            document.getElementById("location").value = `https://www.google.com/maps?q=${position.lat},${position.lng}`;
+                            console.log('Set location: ' + position.lat + ', ' + position.lng);
+ 
+                            // Send location to the server
+                            fetch('/setLocation', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ latitude: position.lat, longitude: position.lng }),
+                            })
+                                .then(response => response.text())
+                                .then(data => console.log(data))
+                                .catch(error => console.error('Error setting location:', error));
+                                closeMap();
+                                
+                        });
+ 
+                        map.on('click', function(event) {
+                            const { lat, lng } = event.latlng;
+                            map.removeLayer(markerposition);
+                            markerposition = L.marker([lat, lng], {
+                                draggable: true,
+                                icon: L.icon({
+                                    iconUrl: "https://cdn-icons-png.flaticon.com/128/3082/3082383.png",
+                                    iconSize: [48, 48],
+                                    iconAnchor: [24, 48], // Adjusted anchor point
+                                }),
+                            }).addTo(map);
+                            markerposition.openPopup();
+                            console.log(`https://www.google.com/maps?q=${lat},${lng}`);
+                        });
+                    },
+                    (error) => {
+                        console.error('Error getting user location:', error);
+                    },
+                    { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+                );
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        }
+    </script>
+</body>
+</html>

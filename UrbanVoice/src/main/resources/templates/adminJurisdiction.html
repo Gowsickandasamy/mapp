@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/navbarUtility.css}">
+    <link rel="stylesheet" th:href="@{/css/adminNav.css}">
+    <link rel="stylesheet" th:href="@{/css/tableUtility.css}">
+    <link rel="stylesheet" th:href="@{/css/adminJurisdiction.css}">
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/search.js}"></script>
+    <link rel="icon" type="image/x-icon" th:href="@{/css/favicon.png}">
+    <script src="https://kit.fontawesome.com/7d53697cb5.js" crossorigin="anonymous"></script>
+    <title>Jurisdictions</title>
+</head>
+<body>
+	<header class="homeheader">
+		<nav class="user_nav">
+			<div class="wrapper">
+			  <div class="logo"><a th:href="@{/urbanvoice/user/track-complaints}">Logo</a></div>
+			
+			  <ul class="nav-links">
+				
+				<!-- <li class="buttons"><a th:href="@{/urbanvoice/admin/officers}">Officers</a></li> -->
+				<li class="buttons"><a th:href="@{/urbanvoice/admin/jurisdictions}">Jurisdictions</a></li>
+				<li><a href="#">[[${adminName}]]</a></li>
+
+				<li>
+					<button class="user-icon-button">
+						<i class="fa-solid fa-user"></i>
+					</button>
+					<input type="checkbox" id="showDrop">
+					
+					<ul class="drop-menu">
+						<li><a th:href="@{/urbanvoice/admin/officers/add}">Add Officer</a></li>
+						<li><a th:href="@{/urbanvoice/admin/jurisdictions/add}">Add Jurisdiction</a></li>
+						<li><a th:href="@{/urbanvoice/admin/view-profile}">View Profile</a></li>
+						<li><a th:href="@{/urbanvoice/admin/change-password}">Change Password</a></li>
+						<li><a th:href="@{/logout}" onclick="confirmLogout(event)"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout </a></li>
+					  
+					</ul>
+				  </li>
+			  </ul>
+			  <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+			</div>
+		  </nav>
+		
+	</header>
+
+	<div id="popup" class="popup">
+		<p th:if="${successMessage}" th:text="${successMessage}"></p>
+	</div>
+
+	<div th:if="${errorMessage}" id="popup1" class="popup1">
+		<p th:text="${errorMessage}"></p>
+	</div>
+
+	<div class="search-bar">
+		<input type="text" id="searchInput" placeholder="Search" oninput="filterTableJurisdiction()" />
+		<label><i class="fa-solid fa-magnifying-glass"></i></label>
+	</div>
+
+	<div class="tableCaption">
+		<p>JURISDICTIONS</p>
+		<a th:href="@{/urbanvoice/admin/jurisdictions/add}"><button type="button" class="pages">Add
+				Jurisdiction</button></a>
+	</div>
+
+	<table>
+		<caption></caption>
+		<tr>
+			<th>SL No.</th>
+			<th>Area</th>
+			<th>Ward</th>
+			<th>Layout</th>
+			<th>Actions</th>
+		</tr>
+		<th:block th:if="${not #lists.isEmpty(jurisdictions)}">
+			<tr th:each="jury , iterStat: ${jurisdictions}">
+				<td th:text="${iterStat.count}"></td>
+				<td th:text="${jury.area}"></td>
+				<td th:text="${jury.ward}"></td>
+				<td th:text="${jury.layout}"></td>
+				<td>
+					<a th:href="@{/urbanvoice/admin/jurisdictions/edit-jury(id=${jury.juryId})}"
+						onclick="return confirmEditJury(event)" th:data-jury-id="${jury.juryId}">
+						<i class="fa-regular fa-pen-to-square fa-lg"></i>
+					</a>
+					<a th:href="@{/urbanvoice/admin/jurisdictions/delete-jury(id=${jury.juryId})}"
+						onclick="return confirmDeleteJury(event)" th:data-jury-id="${jury.juryId}">
+						<i class="fa-solid fa-trash fa-lg" style="color: #f10404;"></i>
+					</a>
+				</td>
+			</tr>
+		</th:block>
+	</table>
+
+	<th:block th:if="${#lists.isEmpty(jurisdictions)}">
+		<p th:text="${noJurisdictionsMessage}" class="complaintMessage"></p>
+	</th:block>
+	<br/>
+	<br/>
+	
+	
+
+</body>
+</html>

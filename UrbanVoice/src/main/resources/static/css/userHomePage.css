@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+body {
+	/* background-color: rgba(26, 34, 55, 0.7); */
+	/* background-image: url('../css/civil_court.jpg'); */
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	width: 100%;
+	height: 100vh;
+	user-select: none;
+	font-family: 'Poppins', sans-serif;
+}
+.content1{
+	height: 100vh;
+	background-color: white;
+	/* background-color: rgba(26, 34, 55, 0.9); */
+}
+
+table {
+	width: 80%;
+	z-index: 1;
+	
+}
+
+.tableCaption {
+	display: flex;
+	justify-content:space-between ;
+	align-items: center;
+	margin-left: 160px;
+	margin-top: 30px;
+}
+
+
+.tableCaption p {
+	padding: 5px 5px;
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.5);
+	color: black;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.tableCaption .pages {
+	padding: 10px 10px;
+	font-size: 16px;
+	border-radius: 5px;
+	float: right;
+	margin-right: 160px;
+	margin-top: 10px;
+	cursor: pointer;
+	border: none;
+	background-color: #F0F0F0;
+	opacity: 1;
+	color: rgba(26, 34, 55, 1);
+	font-family: 'Poppins', sans-serif;
+}
+.track_complaints{
+	padding: 10px 10px;
+	font-size: 24px;
+	font-weight: 500;
+	border-radius: 5px;
+	float: right;
+	margin-right: 160px;
+	margin-top: 10px;
+	background: none;
+	border: none;
+	color: black;
+	font-family: 'Poppins', sans-serif;
+}
+
+.tableCaption .pages:hover {
+	color: BLACK;
+    background-color: rgba(26, 34, 56, 0.5);
+	opacity: 1;
+	border:none;
+}
+.tableCaption .pages::after{
+	border: none;
+}
+
+.popup {
+	margin: auto;
+	font-size: 13.5px;
+	display: none;
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	padding-left: 4px;
+	padding-right: 4px;
+	transform: translate(-50%, -50%);
+	background-color: #4caf50;
+	color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+.popup p{
+	margin: auto;
+}
+
+.complaintMessage {
+	text-align: center;
+	font-weight: bold;
+}
+
+.pages {
+	font-size: 14px;
+	padding: 4px;
+	cursor: pointer;
+	border: 1px solid black;
+}
+
+.pages:hover {
+	background-color: rgba(26, 34, 55, 1);
+	color: white;
+	border: none;
+}
+
+
+@media (max-width:960px){
+	nav .wrapper{
+		width: 100%;
+	}
+}

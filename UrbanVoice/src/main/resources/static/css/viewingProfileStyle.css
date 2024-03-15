@@ -1,0 +1,222 @@
+.box_container1{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 70vh;
+	margin-top: 70px;
+}
+.admin_value1{
+	text-align: center;
+}
+.section{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+	margin-top: 40px;
+}
+.admin_view_buttons{
+	width: 60%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	margin-top: 20px;
+}
+.container{
+	width: 60%;
+}
+.user_containerr {
+	height: 380px;
+	width: 800px;
+	background-color: #E1E2E2;
+	position: relative;
+	/* margin: 6.5% 10% 10% 22%; */
+}
+
+.personal-details-body {
+	display: flex;
+	justify-content: space-between;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.profile-photo i {
+	font-size: 60px;
+	background: rebeccapurple;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+	margin-left: 50px;
+	opacity: 0.7;
+}
+
+.personal-details {
+	display: flex;
+	flex-direction: column;
+	margin-right: 50%;
+}
+
+.personal-details-row-1 {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+}
+
+.personal-details-row-1 div {
+	text-align: center;
+	margin: 20px;
+	margin-bottom: 10px;
+}
+
+p {
+	font-weight: 400;
+	color: rebeccapurple;
+	font-size: 16px;
+}
+.admin_count{
+	background-color: rebeccapurple;
+	color: white;
+}
+
+.count {
+	background-color: rebeccapurple;
+	color: white;
+	height: 27px;
+	width: 27px;
+}
+.button_viewProfile{
+	height: 60px;
+    width: 180px;
+    position: relative;
+    bottom: 60px;
+    left: 300px;
+    font-size: 14px;
+    cursor: pointer;
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+.view_profile{
+	text-align: center;
+}
+.button_viewProfile:hover{
+	background-color: rgba(26, 34, 55, 1);
+}
+.button_viewProfile:hover .link_to_password {
+	color: white;
+	background-color: rgba(26, 34, 55, 1);
+}
+.button_viewProfile:hover i{
+	color: white;
+}
+.button_viewProfile i{
+	display: inline;
+    margin: auto;
+}
+.button_viewProfile a{
+	padding: 0;
+	display: block;
+    margin: auto;
+
+}
+.link_to_password{
+	color: black;
+	text-decoration: none;
+}
+.link_to_password:hover{
+
+	text-decoration: none;
+}
+.buttons{
+	/* margin-top: -215px;
+	float: right;
+	margin-right: 367px; */
+}
+
+.admin_buttons .pages {
+	padding: 10px 10px;
+	font-size: 16px;
+	font-style: italic;
+	border-radius: 5px;
+	cursor: pointer;
+	border: none;
+}
+
+.admin_buttons .pages:hover {
+	color: white;
+	background-color: rgba(26, 34, 55, 1);
+}
+
+.admin_buttons .pages i {
+	font-size: 18px;
+}
+.back_button{
+	height: 50px;
+    width: 50px; /* Adjusted width for a perfect circle */
+    /* border-radius: 50%; */
+	border: none;
+	cursor: pointer;
+	background: none;
+}
+.back_button i:hover {
+	color: #F0F0F0;
+    background-color: rgba(26, 34, 55, 1);
+	border-radius: 10px;
+}
+.back_button i{
+	color: rgba(26, 34, 55, 1);
+	/* border: 2px solid white; */
+	font-size: 30px;
+	font-weight: 600;
+	padding: 5px 5px;
+	cursor: pointer
+}
+
+.tableCaption{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	/* margin-bottom: -95px; */
+	justify-content: space-around;
+}
+
+.tableCaption p {
+	font-family: 'Open Sans', sans-serif !important;
+	font-style: inherit;
+	background-color: rgba(255, 255, 255, 0.5);
+	color: black;
+	font-size: 24px;
+	font-weight: 600;
+	padding: 5px 5px;
+	
+}
+
+.popup {
+	margin: auto;
+	font-size: 13.5px;
+	display: none;
+	position: fixed;
+	top: 16%;
+	left: 50%;
+	padding-left: 4px;
+	padding-right: 4px;
+	transform: translate(-50%, -50%);
+	background-color: #4caf50;
+	color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.popup p {
+	color: white;
+}
+
+.detail_header{
+	font-size: 16px;
+}

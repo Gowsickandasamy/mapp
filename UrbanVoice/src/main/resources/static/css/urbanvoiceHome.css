@@ -1,0 +1,170 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Styles */
+nav {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    border-radius: 0;
+    background: #1A2238;
+}
+
+.navbar {
+    padding: 15px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo a {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 9px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background: #3A3B3C;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        max-width: 350px;
+        top: 0;
+        left: -100%;
+        background: #1A2238;
+        padding: 50px 10px;
+        line-height: 50px;
+        overflow-y: auto;
+        box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.18);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.show {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 10px;
+    }
+
+    .nav-links li a {
+        padding: 0 20px;
+        display: block;
+        font-size: 20px;
+    }
+}
+
+/* Home Section Styles */
+.home-section {
+    background-image: url('../css/Vidhana.jpg');
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner {
+    width: 70%;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 25px;
+    margin-bottom: 10rem;
+}
+
+.banner h1,
+.banner h2 {
+    color: #4caf50;
+}
+
+.row {
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item {
+    flex: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Footer Styles */
+#footer {
+    background-color: #1A2238;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info {
+    margin-top: 10px;
+}
+
+/* Responsive Typography */
+@media screen and (max-width: 768px) {
+    section h1{
+        font-size: 24px;
+    }
+    section h3{
+        font-size: 24px;
+    }s
+    section  .lead{
+        font-size: 14px;
+    }
+    section .row{
+        margin-top: 10px;
+    }
+    footer > .container > .row-need{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+}
+
